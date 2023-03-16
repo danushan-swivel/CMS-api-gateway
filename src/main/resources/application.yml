@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://cms-discovery.herokuapp.com/eureka
+  instance:
+    preferIpAddress: true
+
+spring:
+  application:
+    name: CMS-Api-Gateway
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:8080"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+
+      routes:
+        - id: CMS-Student-Service
+          uri: lb://CMS-Student-Service
+          predicates:
+            - Path=/api/v1/student/**
+        - id: CMS-Class-Location
+          uri: lb://CMS-Class-Location
+          predicates:
+            - Path=/api/v1/location/**
+        - id: CMS-Student-Payment
+          uri: lb://CMS-Student-Payment
+          predicates:
+            - Path=/api/v1/location/**
+        - id: CMS-Auth-Service
+          uri: lb://CMS-Auth-Service
+          predicates:
+            - Path=api/v1/user/**
+
