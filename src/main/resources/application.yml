@@ -28,19 +28,19 @@ spring:
 
       routes:
         - id: CMS-Student-Service
-          uri: lb://CMS-Student-Service
+          uri: https://cms-student.herokuapp.com
           predicates:
             - Path=/api/v1/student/**
         - id: CMS-Class-Location
-          uri: lb://CMS-Class-Location
+          uri: https://cms-location.herokuapp.com
           predicates:
             - Path=/api/v1/tuition/**
         - id: CMS-Student-Payment
-          uri: lb://CMS-Student-Payment
+          uri: https://cms-payment.herokuapp.com
           predicates:
             - Path=/api/v1/payment/**
         - id: CMS-Auth-Service
-          uri: lb://CMS-Auth-Service
+          uri: https://cms-auth-service.herokuapp.com
           predicates:
             - Path=/user/**
 
