@@ -5,12 +5,16 @@ eureka:
   client:
     serviceUrl:
       defaultZone: https://cms-discovery.herokuapp.com/eureka
+#      defaultZone: http://localhost:8761/eureka
   instance:
     preferIpAddress: true
 
 spring:
   application:
     name: CMS-Api-Gateway
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   cloud:
     gateway:
       globalcors:
@@ -30,13 +34,13 @@ spring:
         - id: CMS-Class-Location
           uri: lb://CMS-Class-Location
           predicates:
-            - Path=/api/v1/location/**
+            - Path=/api/v1/tuition/**
         - id: CMS-Student-Payment
           uri: lb://CMS-Student-Payment
           predicates:
-            - Path=/api/v1/location/**
+            - Path=/api/v1/payment/**
         - id: CMS-Auth-Service
           uri: lb://CMS-Auth-Service
           predicates:
-            - Path=api/v1/user/**
+            - Path=/user/**
 
