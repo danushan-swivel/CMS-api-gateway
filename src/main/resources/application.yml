@@ -20,7 +20,7 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "https://perera-tuition-class.herokuapp.com"
+            allowedOrigins: "https://cms-front-end-one.vercel.app"
             allowedHeaders: "*"
             allowedMethods:
               - GET
