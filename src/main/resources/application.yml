@@ -25,20 +25,23 @@ spring:
             allowedMethods:
               - GET
               - POST
+              - PUT
+              - DELETE
+              - OPTIONS
 
       routes:
         - id: CMS-Student-Service
           uri: https://cms-student.herokuapp.com
           predicates:
-            - Path=/api/v1/student/**
+            - Path=/student/**
         - id: CMS-Class-Location
           uri: https://cms-tuition-class.herokuapp.com
           predicates:
-            - Path=/api/v1/tuition/**
+            - Path=/tuition/**
         - id: CMS-Student-Payment
           uri: https://cms-payment.herokuapp.com
           predicates:
-            - Path=/api/v1/payment/**
+            - Path=/payment/**
         - id: CMS-Auth-Service
           uri: https://cms-auth-service.herokuapp.com
           predicates:
