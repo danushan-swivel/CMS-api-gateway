@@ -4,8 +4,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: https://cms-discovery.herokuapp.com/eureka
-#      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://localhost:8761/eureka
   instance:
     preferIpAddress: true
 
@@ -20,7 +19,7 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "https://cms-front-end-one.vercel.app"
+            allowedOrigins: "http://localhost:3000"
             allowedHeaders: "*"
             allowedMethods:
               - GET
@@ -31,19 +30,19 @@ spring:
 
       routes:
         - id: CMS-Student-Service
-          uri: https://cms-student.herokuapp.com
+          uri: http://localhost:8104
           predicates:
             - Path=/student/**
         - id: CMS-Class-Location
-          uri: https://cms-tuition-class.herokuapp.com
+          uri: http://localhost:8105
           predicates:
             - Path=/tuition/**
         - id: CMS-Student-Payment
-          uri: https://cms-payment.herokuapp.com
+          uri: http://localhost:8101
           predicates:
             - Path=/payment/**
         - id: CMS-Auth-Service
-          uri: https://cms-auth-service.herokuapp.com
+          uri: http://localhost:8111
           predicates:
             - Path=/user/**
 
